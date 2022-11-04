@@ -14,4 +14,4 @@ jobs:
         run: echo 'PORT=${{ secrets.PORT }}' > .env
 
       - name: Run build
-        run: sudo chown -R $USER:$USER database/ && docker-compose up -d
+        run: docker-compose up -d
