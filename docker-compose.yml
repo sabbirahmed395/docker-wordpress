@@ -24,7 +24,7 @@ services:
     image: wordpress:latest
     restart: always
     ports:
-      - "${PORT:-8080}:80"
+      - "${PORT:-1234}:80"
     depends_on:
       - mysql
     environment:
