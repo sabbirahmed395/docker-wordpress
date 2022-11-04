@@ -11,11 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@main
       - name: Create .env
-        run: 
-          echo 'PORT=${{ secrets.PORT }}' > .env
-          echo 'WORDPRESS_DB_NAME=${{ secret.WORDPRESS_DB_NAME }}' > .env
-          echo 'WORDPRESS_DB_PASSWORD=${{ secret.WORDPRESS_DB_PASSWORD }}' > .env
-          echo 'WORDPRESS_DB_USER=${{ secret.WORDPRESS_DB_USER }}' > .env
+        run: echo 'PORT=${{ secrets.PORT }}\nWORDPRESS_DB_NAME=${{ secret.WORDPRESS_DB_NAME }}\nWORDPRESS_DB_PASSWORD=${{ secret.WORDPRESS_DB_PASSWORD }}\nWORDPRESS_DB_USER=${{ secret.WORDPRESS_DB_USER }}' > .env
           
       - name: Run build
         run: docker-compose up -d
