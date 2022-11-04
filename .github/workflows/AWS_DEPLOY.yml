@@ -12,6 +12,6 @@ jobs:
       - uses: actions/checkout@main
       - name: Create .env
         run: echo 'PORT=${{ secrets.PORT }}' > .env
-          
+
       - name: Run build
-        run: chown -R $USER:$USER ./database && docker-compose up -d
+        run: sudo chown -R $USER:$USER ./database && docker-compose up -d
