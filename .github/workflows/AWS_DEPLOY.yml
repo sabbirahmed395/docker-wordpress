@@ -1,0 +1,21 @@
+name: AWS_DEPLOY
+
+on:
+  push:
+    branches: [ main ]
+    
+jobs:
+  Build:
+    runs-on: self-hosted
+    
+    steps:
+      - uses: actions/checkout@main
+      - name: Create .env
+        run: 
+          echo 'PORT=${{ secrets.PORT }}' > .env
+          echo 'WORDPRESS_DB_NAME=${{ secret.WORDPRESS_DB_NAME }}' > .env
+          echo 'WORDPRESS_DB_PASSWORD=${{ secret.WORDPRESS_DB_PASSWORD }}' > .env
+          echo 'WORDPRESS_DB_USER=${{ secret.WORDPRESS_DB_USER }}' > .env
+          
+      - name: Run build
+        run: docker-compose up -d
